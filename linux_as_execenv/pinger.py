@@ -1,8 +1,18 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 url_template = "https://simurg.space/gen_file?data=obs&date={date}"
 now = datetime.now()
-date  = now.strftime("%Y-%m-%d")
-url = url_template.format(date = date)
-responce = requests.get(url = url, stream = True)
-print(f"For {date} got: ", responce)
+while True:
+    date  = now.strftime("%Y-%m-%d")
+    url = url_template.format(date = date)
+    responce = requests.get(url = url, stream = True)
+    print(f"For {date} got: ", responce)
+    if responce.status_code == 200:
+        print(f"Last available datea are for {date}")
+        break
+    else:
+        now = now - timedelta(days = 1)
+
+
+
+    
