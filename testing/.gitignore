@@ -1,0 +1,65 @@
+### --- Системные файлы (macOS, Windows, Linux) --- ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+### --- Python --- ###
+# Байт-код и кэш
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Виртуальные окружения (Обязательно к игнорированию!)
+venv/
+.venv/
+env/
+.env/
+ENV/
+bin/
+lib/
+develop-eggs/
+dist/
+build/
+*.egg-info/
+
+# Файлы конфигурации и секреты
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+### --- VS Code --- ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Локальная история и кэш расширений
+.history/
+.ionide/
+
+### --- Прочее --- ###
+*.log
+*.tmp
+*.temp
+*.idea
