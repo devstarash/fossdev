@@ -3,7 +3,11 @@ sys.path.append("../src")
 #TODO make it with 'pip install -e'
 from math_demo import(
     add,
-    add_with_bug
+    add_with_bug,
+    calculate_tax_with_bug,
+    calculate_tax,
+    calculate_tax
+
 )
 def test_addition():
     assert add(2, 2) == 4
@@ -35,10 +39,34 @@ def test_addition_reasonable():
     assert add(7, 0) == 7
     print("Test ADDITION REASONABLE PASS")
 def test_addition_commutative():
+    #can be in previous test but logically separated
     assert add(7, -6) == 1
     assert add(-6, 7) == 1
+    print("Test ADDITION COMMUTATIVE PASS")
 
+def test_tax_calculation_pesticides():
+    #using only integers limits test case
+    assert calculate_tax_with_bug(1000) == 150.0
+    assert calculate_tax_with_bug(100) == 15.0
+    assert calculate_tax_with_bug(10) == 1.5
+    assert calculate_tax_with_bug(1) == 0.15
+    assert calculate_tax_with_bug(245) == 36.75
+    assert calculate_tax_with_bug(-200) == -30.0
+    assert calculate_tax_with_bug(0) == 0.
+    #must fails with floats, but I did not used them
+    #assert calculate_tax_with_bug(24.5) == 3.67 # 3.675
+    print("Test TAX CALCULATION PASSED")
 
+def test_tax_calculation():
+    #using only integers limits test case
+    assert calculate_tax(1000) == 150.0
+    assert calculate_tax(100) == 15.0
+    assert calculate_tax(10) == 1.5
+    assert calculate_tax(1) == 0.15
+    assert calculate_tax(245) == 36.75
+    assert calculate_tax(-200) == -30.0
+    assert calculate_tax(0) == 0.
+    print("Test TAX CALCULATION PASSED")
 
 if __name__== "__main__":
     test_addition()
@@ -47,3 +75,6 @@ if __name__== "__main__":
     # test_addition_overcomplicated() # too redundant run on your fear and risk
     test_addition_reasonable()
     test_addition_commutative()
+    test_tax_calculation_pesticides()
+    test_tax_calculation()
+
