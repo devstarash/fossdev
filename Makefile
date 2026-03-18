@@ -1,5 +1,15 @@
 .PHONY: create-practice remove-practice
 create-practice:
-	mkdir -p makedemo
+ifndef NAME
+	$(error NAME is not defiend)
+	
+endif
+	mkdir -p $(NAME)
+
 remove-practice:
-	rm -rf makedemo
+ifndef NAME
+	$(error NAME is not defiend)
+
+
+endif
+	rm -rf $(NAME)
