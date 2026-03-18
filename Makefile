@@ -5,6 +5,7 @@ ifndef NAME
 	
 endif
 	mkdir -p $(NAME)
+	cp PracticeMAkeFile $(NAME)/Makefile
 
 remove-practice:
 ifndef NAME
