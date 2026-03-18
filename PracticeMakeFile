@@ -7,8 +7,10 @@ create-structure:
 	touch setup.py requirements.txt
 
 create-venv:
+	python3 -m venv .venv
+
 activate:
-	python3 -m venv .venv  
+
 	.venv/bin/activate
 
 install-dep:
