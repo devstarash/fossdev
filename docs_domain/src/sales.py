@@ -1,7 +1,7 @@
 # TODO refactor this module using buisness logic names
 
-def _parce_record(string):
-    sale = string.strip().split(",")
+def _parce_record(line: str) -> dict | None:
+    sale = line.strip().split(",")
     if len(sale) != 4:  # according specification all sales have 4 cols
         return None  
 
@@ -10,7 +10,7 @@ def _parce_record(string):
     try:
         unit_price = float(sale[2]) 
         quantity = int(sale[3]) 
-        if quantity != sale[3]:
+        if quantity != sale[3]:  #according specific quantity is always integer
             return None
     except ValueError:
         return None
