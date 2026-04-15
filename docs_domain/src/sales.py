@@ -1,6 +1,11 @@
 # TODO refactor this module using buisness logic names
 
 def _parce_record(line: str) -> dict | None:
+    """Parses one record from sales files.
+    Parameters:
+        line - one record about sales `product_name, category, unit_price, quanity
+    Returns:
+       dict | None"""
     sale = line.strip().split(",")
     if len(sale) != 4:  # according specification all sales have 4 cols
         return None  
