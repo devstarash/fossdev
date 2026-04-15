@@ -17,5 +17,7 @@ This docs describe sales parsing lib.
    QUICKSTART
    HOW_TO_CONTRIBUTE
    DOMAIN
+   api/modules
+   
 
 
