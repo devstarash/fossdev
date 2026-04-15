@@ -13,6 +13,10 @@ This docs describe sales parsing lib.
    :maxdepth: 2
    :caption: Contents:
 
-   
+
    QUICKSTART
+   HOW_TO_CONTRIBUTE
+
+.. include:: ../DOMAIN.md
+   :parser: myst_parser.sphinx_
 
