@@ -16,7 +16,6 @@ This docs describe sales parsing lib.
 
    QUICKSTART
    HOW_TO_CONTRIBUTE
+   DOMAIN
 
-.. include:: ../DOMAIN.md
-   :parser: myst_parser.sphinx_
 
