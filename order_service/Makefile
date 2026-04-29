@@ -21,5 +21,8 @@ test-pytest:
 
 test: install-dep install test-pytest
 
+run:
+	poetry install
+	poetry run uvicorn app.main:app --host=127.0.0.1 --port 8002
 
 
