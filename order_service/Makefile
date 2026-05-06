@@ -1,4 +1,4 @@
-.PHONY: create-structure activate install-dep install test-pytest create-venv create-requirements
+.PHONY: create-structure activate install-dep install test-pytest create-venv create-requirements run
 
 create-structure:
 	mkdir -p src tests docs
