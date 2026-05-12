@@ -5,6 +5,19 @@ services:
       - "8001:8000"
     networks:
       - service-net
+  discount-service:
+    build: ./discount_service
+    ports:
+      - "8003:8000"
+    environment:
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+
+    networks:
+      - service-net
+
 
   order-service:
     build: ./order_service
@@ -12,6 +25,7 @@ services:
       - "8002:8000"
     environment:
       PRODUCT_SERVICE_URL: http://product-service:8000
+      DISCOUNT_SERVICE_URL: http://discount-service:8000
       DATABASE_URL: postgres://app:app@db:5432/orders
     depends_on:
       product-service:
@@ -23,7 +37,7 @@ services:
   db:
     image: postgres:16
     ports: 
-    - "5432:5432"
+    - "5433:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U app -d orders"]
       interval: 5s
@@ -38,7 +52,18 @@ services:
       - order_db:/var/lib/postgresql/data
     networks:
       - service-net
-
+  redis:
+    image: redis:7-alpine
+    ports: 
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - service-net
     
 networks:
   service-net:
